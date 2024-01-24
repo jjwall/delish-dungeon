@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity.y += gravity * delta
@@ -21,8 +21,11 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
+		$AnimatedSprite2D.play("walk")
+		$AnimatedSprite2D.scale.x = direction
 		velocity.x = direction * SPEED
 	else:
+		$AnimatedSprite2D.play("default")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
