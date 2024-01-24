@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8h6t84j2hocv"]
+
+[ext_resource type="SpriteFrames" uid="uid://cqb0b6o77cqm0" path="res://objects/character/character.tres" id="1_ee74n"]
+[ext_resource type="Script" path="res://objects/character/character.gd" id="1_h1w68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_micqt"]
+size = Vector2(80, 117)
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_h1w68")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_ee74n")
+animation = &"walk"
+autoplay = "default"
+frame = 14
+frame_progress = 0.0438996
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 4.5)
+shape = SubResource("RectangleShape2D_micqt")
